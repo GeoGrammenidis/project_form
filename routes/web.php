@@ -20,4 +20,5 @@ Route::get('/general', function () {
 Route::get('/favourites', function () {
     return view('parts/favourites');
 });*/
-Route::get('/', 'SectionsController@index');
+Route::get('/questionnaire', 'SectionsController@index');
+Route::post('/questionnaire/{section}', "SectionsController@store");

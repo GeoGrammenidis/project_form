@@ -25,7 +25,7 @@
   </div>
   <div class="form-group">
     <label for="country">Country</label>
-    <input type="number" class="form-control" id="country" placeholder="Type your country">
+    <input type="text" class="form-control" id="country" placeholder="Type your country">
   </div>
   <button type="submit" class="btn btn-primary">Next</button>
 </form>
