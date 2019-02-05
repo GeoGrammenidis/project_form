@@ -12,5 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('parts/index');
+});
+Route::get('/general', function () {
+    return view('parts/general');
+});
+Route::get('/favourites', function () {
+    return view('parts/favourites');
 });
