@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('parts/index');
 });
@@ -19,4 +19,5 @@ Route::get('/general', function () {
 });
 Route::get('/favourites', function () {
     return view('parts/favourites');
-});
+});*/
+Route::get('/', 'SectionsController@index');
