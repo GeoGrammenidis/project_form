@@ -4,11 +4,9 @@
 	<div class="row">
 	    <div class="col-sm">
 	        <div class="card">
-				<h1 class="title">Questionnaire</h1>
-
+				<h1 class="title" style="text-align:center;">Questionnaire</h1>
 				<div class="accordion" id="accordion">
 					@foreach ($sections as $section)
-
 						<div class="card">
 							<div class="card-header" id="headingOne">
 								<h5 class="mb-0">
@@ -16,17 +14,16 @@
 								  {{$section->name}}
 								</button>
 								</h5>
-							</div>
-
+							</div><!--card-header-->
 							<div id="collapse{{$section->id}}" class="collapse" aria-labelledby="heading{{$section->id}}" data-parent="#accordion">
 								<div class="card-body">
 									@include('questions')
-								</div>
-							</div>
-						</div>
+								</div><!--card-body-->
+							</div><!--collapse-->
+						</div><!--card-->
 					@endforeach
-				</div>
-	        </div>
-	    </div>
-	</div>
+				</div><!--accordion-->
+	        </div><!--card-->
+	    </div><!--col-->
+	</div> <!--row-->
 @endsection
