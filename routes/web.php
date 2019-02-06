@@ -10,15 +10,5 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*
-Route::get('/', function () {
-    return view('parts/index');
-});
-Route::get('/general', function () {
-    return view('parts/general');
-});
-Route::get('/favourites', function () {
-    return view('parts/favourites');
-});*/
 Route::get('/questionnaire', 'SectionsController@index');
 Route::post('/questionnaire/{section}/create', "SectionsController@store");
