@@ -9,12 +9,13 @@ use App\Ansewer;
 class Section extends Model{
     //A function that creates a table with tables for validation for
     //each question we have posted.
+    protected $guarded = ['id'];
     public function get_table_to_val(Section $section){
         $section_questions=Question::where('section_id',$section->id)->get();
         $data = [];
         foreach ($section_questions as $section_question) {
             if($section_question->input_type=='text')
-                $val = ['required','min:3','max:255'];
+                $val = ['required','min:2','max:255'];
             else if($section_question->input_type=='number')
                 $val = ['required','numeric'];
             else

@@ -23,4 +23,18 @@ class SectionsController extends Controller{
         $section->create_answers($section, $data);
     	return redirect('/questionnaire');
     }
+
+    public function create(){
+        $sections = Section::all();
+        $questions = Question::all();
+        //return $questions;
+        return view('contents/create', compact('sections','questions'));
+    }
+    public function store2(){
+        Section::create(request()->validate([
+            'order' => ['required','numeric'],
+            'name' => ['required', 'min:2']
+        ]));
+        return redirect("/questionnaire/create");
+    }
 }

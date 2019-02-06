@@ -11,4 +11,9 @@
 |
 */
 Route::get('/questionnaire', 'SectionsController@index');
+//post can become better (removing section and adding a hidden value on forms)
 Route::post('/questionnaire/{section}/create', "SectionsController@store");
+Route::get('/questionnaire/create', 'SectionsController@create');
+Route::post('/questionnaire/create2', 'SectionsController@store2');
+Route::post('/questionnaire/create_question', 'QuestionsController@create');
+Route::post('/questionnaire/create_option', 'OptionsController@create');
