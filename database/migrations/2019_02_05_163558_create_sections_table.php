@@ -11,8 +11,7 @@ class CreateSectionsTable extends Migration
      *
      * @return void
      */
-    public function up()
-    {
+    public function up(){
         Schema::create('sections', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
@@ -26,8 +25,7 @@ class CreateSectionsTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down(){
         Schema::dropIfExists('sections');
     }
 }

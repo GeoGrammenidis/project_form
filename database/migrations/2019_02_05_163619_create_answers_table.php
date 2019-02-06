@@ -11,8 +11,7 @@ class CreateAnswersTable extends Migration
      *
      * @return void
      */
-    public function up()
-    {
+    public function up(){
         Schema::create('answers', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('question_id');
@@ -27,8 +26,7 @@ class CreateAnswersTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down(){
         Schema::dropIfExists('answers');
     }
 }
