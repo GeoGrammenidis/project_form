@@ -1,23 +1,23 @@
-<form method="POST" action="/questionnaire/{{$section->id}}">
+<form method="POST" action="/questionnaire/{{$section->id}}/create">
   	@csrf
 	@foreach ($questions as $question)
 		@if ($section->id == $question->section_id)
 			@if ($question->input_type == "text")
 				<div class="form-group">
 					<label for="question_{{$question->id}}">{{$question->question_text}}</label>
-					<input type="text" class="form-control" name="{{$question->id}}" id="question_{{$question->id}}" placeholder="Type text">
+					<input type="text" class="form-control" name="question_{{$question->id}}" id="question_{{$question->id}}" placeholder="Type text">
 				</div>
 			@endif
 			@if ($question->input_type == "number")
 				<div class="form-group">
 					<label for="question_{{$question->id}}">{{$question->question_text}}</label>
-					<input type="number" class="form-control" name="{{$question->id}}" id="question_{{$question->id}}" placeholder="Type a number">
+					<input type="number" class="form-control" name="question_{{$question->id}}" id="question_{{$question->id}}" placeholder="Type a number">
 				</div>
 			@endif
 			@if ($question->input_type == "select")
 				<div class="form-group">
 					<label for="question_{{$question->id}}">{{$question->question_text}}</label>
-					<select id="question_{{$question->id}}" name="{{$question->id}}" class="form-control">
+					<select id="question_{{$question->id}}" name="question_{{$question->id}}" class="form-control">
 						@foreach ($options as $option)
 							@if ($option->question_id == $question->id)
 		        				<option>{{$option->value}}</option>
@@ -32,7 +32,7 @@
 					@foreach ($options as $option)
 						@if ($option->question_id == $question->id)
 							<div class="form-check">
-								<input class="form-check-input" type="radio" name="{{$question->id}}" id="Radios{{$option->id}}" value="option{{$option->id}}">
+								<input class="form-check-input" type="radio" name="question_{{$question->id}}" id="Radios{{$option->id}}" value="option{{$option->id}}">
 								<label class="form-check-label" for="Radios{{$option->id}}">
 									{{$option->value}}
 								</label>
@@ -47,7 +47,7 @@
 						@foreach ($options as $option)
 							@if ($option->question_id == $question->id)
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" name="{{$question->id}}[]" id="check{{$question->id}}">
+									<input class="form-check-input" type="checkbox" name="question_{{$question->id}}[]" id="check{{$question->id}}" value="option{{$option->id}}">
 									<label class="form-check-label" for="check{{$question->id}}">
 										{{$option->value}}
 									</label>
