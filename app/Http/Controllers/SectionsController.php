@@ -30,11 +30,21 @@ class SectionsController extends Controller{
         //return $questions;
         return view('contents/create', compact('sections','questions'));
     }
+
     public function store2(){
         Section::create(request()->validate([
             'order' => ['required','numeric'],
             'name' => ['required', 'min:2']
         ]));
         return redirect("/questionnaire/create");
+    }
+
+    public function search(){
+        $sections = Section::all();
+        $questions = Question::all();
+        $options = Option::all();
+        return view('contents/search',
+            compact('sections', 'questions', 'options')
+        );
     }
 }

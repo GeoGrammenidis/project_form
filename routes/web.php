@@ -17,3 +17,4 @@ Route::get('/questionnaire/create', 'SectionsController@create');
 Route::post('/questionnaire/create2', 'SectionsController@store2');
 Route::post('/questionnaire/create_question', 'QuestionsController@create');
 Route::post('/questionnaire/create_option', 'OptionsController@create');
+Route::get('/questionnaire/edit', 'SectionsController@search');
