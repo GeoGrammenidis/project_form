@@ -5,13 +5,13 @@
 			@if ($question->input_type == "text")
 				<div class="form-group">
 					<label for="question_{{$question->id}}">{{$question->question_text}}</label>
-					<input type="text" class="form-control" name="question_{{$question->id}}" id="question_{{$question->id}}" placeholder="Type text">
+					<input type="text" class="form-control" name="question_{{$question->id}}" id="question_{{$question->id}}" placeholder="Type text" required>
 				</div>
 			@endif
 			@if ($question->input_type == "number")
 				<div class="form-group">
 					<label for="question_{{$question->id}}">{{$question->question_text}}</label>
-					<input type="number" class="form-control" name="question_{{$question->id}}" id="question_{{$question->id}}" placeholder="Type a number">
+					<input type="number" class="form-control" name="question_{{$question->id}}" id="question_{{$question->id}}" placeholder="Type a number" required>
 				</div>
 			@endif
 			@if ($question->input_type == "select")
@@ -32,7 +32,7 @@
 					@foreach ($options as $option)
 						@if ($option->question_id == $question->id)
 							<div class="form-check">
-								<input class="form-check-input" type="radio" name="question_{{$question->id}}" id="Radios{{$option->id}}" value="option{{$option->id}}">
+								<input class="form-check-input" type="radio" name="question_{{$question->id}}" id="Radios{{$option->id}}" value="option{{$option->id}}" required>
 								<label class="form-check-label" for="Radios{{$option->id}}">
 									{{$option->value}}
 								</label>
