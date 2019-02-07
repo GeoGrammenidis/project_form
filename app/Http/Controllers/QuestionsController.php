@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Question;
 use App\Section;
 
-class QuestionsController extends Controller
-{
+class QuestionsController extends Controller{
+    
     public function create(){
         Question::create(request()->validate([
             'section_id' => ['required','numeric'],

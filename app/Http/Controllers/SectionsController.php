@@ -9,8 +9,7 @@ use App\Option;
 
 class SectionsController extends Controller{
 
-    //section
-    public function store2(){
+    public function store(){
         Section::create(request()->validate([
             'order' => ['required','numeric'],
             'name' => ['required', 'min:2']
@@ -18,12 +17,10 @@ class SectionsController extends Controller{
         return redirect("/questionnaire/create");
     }
 
-    //section
     public function edit(Section $section){
         return view('/contents/edit_section', compact('section'));
     }
 
-    //section
     public function update(Section $section){
         $section->update(request()->validate([
             'order' => ['required','numeric'],

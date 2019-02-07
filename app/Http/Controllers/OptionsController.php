@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Option;
 use App\Question;
 
-class OptionsController extends Controller
-{
+class OptionsController extends Controller{
+    
     public function create(){
         Option::create(request()->validate([
             'question_id' => ['required','numeric'],
