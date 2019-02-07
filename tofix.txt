@@ -1,0 +1,27 @@
+cascade on delete/update
+checkbox add javascript to have front-end validation
+check validation for create and edit forms.
+front-end validation needs "min" - "max"
+back-end validation can become better
+add features to the tables on search
+
+-------------extras to do----------------
+read more about laravel
+add statistics tab
+create a homepage
+    -at home page we select site-format
+    -sessions to be added
+create users
+    -simple users
+        -can answer to questionnaries
+        -can see statistics
+    -create admin users
+        -can answer to questionnaries
+        -can see statistics
+        -can edit/delete questionnaries that they have created
+    -create super admin users
+        -can answer to questionnaries
+        -can see statistics
+        -can edit/delete any questionnarie
+        -can search for users
+        -can edit/delete user (even upgrade them to super admin)
