@@ -30,6 +30,10 @@ Route::patch('/questionnaire/section/{section}', "SectionsController@update");
 Route::delete('/questionnaire/section/{section}', "SectionsController@destroy");
 
 
+Route::get('/questionnaire/question/{question}/edit', 'QuestionsController@edit');
+Route::patch('/questionnaire/question/{question}', "QuestionsController@update");
+Route::delete('/questionnaire/question/{question}', "QuestionsController@destroy");
+
 Route::get('/questionnaire/option/{option}/edit', 'OptionsController@edit');
 Route::patch('/questionnaire/option/{option}', "OptionsController@update");
 Route::delete('/questionnaire/option/{option}', "OptionsController@destroy");

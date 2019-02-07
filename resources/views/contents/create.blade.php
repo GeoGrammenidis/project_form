@@ -25,7 +25,7 @@
                             aria-labelledby="heading1"
                             data-parent="#accordion">
                             <div class="card-body">
-                                <form method="POST" action="/questionnaire/section/create">
+                                <form method="POST" action="/questionnaire/create/section">
                                     @csrf
                                     <div class="form-group">
                                         <label for="section_name">
@@ -74,7 +74,7 @@
                             aria-labelledby="heading2"
                             data-parent="#accordion">
                             <div class="card-body">
-                                <form method="POST" action="/questionnaire/question/create">
+                                <form method="POST" action="/questionnaire/create/question">
                                     @csrf
                                     <div class="form-group">
                                         <label for="select_section">

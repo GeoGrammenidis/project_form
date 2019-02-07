@@ -44,9 +44,6 @@
                                                     <form method="POST" action="/questionnaire/section/{{$section->id}}">
                                                         @method('DELETE')
                                                         @csrf
-                                                        <a href="#">
-                                                            
-                                                        </a>
                                                         <div class="spacer">
                                                             <a href="javascript:void(0)" class="submit-button"><span style="color:red"><i class="fas fa-trash-alt"></i></span></a>
                                                         </div>
@@ -99,8 +96,16 @@
                                                 </td>
                                                 <td>{{$question->question_text}}</td>
                                                 <td>{{$question->input_type}}</td>
-                                                <td><a href="#"><span style="color:blue;"><i class="fas fa-pencil-alt"></i></span></a></td>
-                                                <td><a href="#"><span style="color:red"><i class="fas fa-trash-alt"></i></span></a></td>
+                                                <td><a href="/questionnaire/question/{{$question->id}}/edit"><span style="color:blue;"><i class="fas fa-pencil-alt"></i></span></a></td>
+                                                <td>
+                                                    <form method="POST" action="/questionnaire/question/{{$question->id}}">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <div class="spacer">
+                                                            <a href="javascript:void(0)" class="submit-button"><span style="color:red"><i class="fas fa-trash-alt"></i></span></a>
+                                                        </div>
+                                                    </form>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -147,7 +152,16 @@
                                                 </td>
                                                 <td>{{$option->value}}</td>
                                                 <td><a href="/questionnaire/option/{{$option->id}}/edit"><span style="color:blue;"><i class="fas fa-pencil-alt"></i></span></a></td>
-                                                <td><a href="#"><span style="color:red"><i class="fas fa-trash-alt"></i></span></a></td>
+                                                <td>
+                                                    <form method="POST" action="/questionnaire/option/{{$option->id}}">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <div class="spacer">
+                                                            <a href="javascript:void(0)" class="submit-button"><span style="color:red"><i class="fas fa-trash-alt"></i></span></a>
+                                                        </div>
+                                                    </form>
+                                                </td>
+
                                             </tr>
                                         @endforeach
                                     </tbody>
