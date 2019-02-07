@@ -21,7 +21,7 @@
                 <div class="card-body">
                     <form method="POST"
                     action="/questionnaire/{{$section->id}}/create">
-                        @include('parts/questions')
+                        @include('parts/index/questions')
                         <button type="submit"
                             class="btn btn-primary">Submit</button>
                     </form>

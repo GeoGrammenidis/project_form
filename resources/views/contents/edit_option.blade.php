@@ -18,7 +18,9 @@
                             name="question_id"
                             id="question_id">
                             @foreach ($questions as $question)
-                                @if ($question->input_type=="checkbox"||$question->input_type=="radio"||$question->input_type=="select")
+                                @if ($question->input_type=="checkbox"
+                                ||$question->input_type=="radio"
+                                ||$question->input_type=="select")
                                     <option value="{{$question->id}}"
                                         @if ($question->id == $option->question_id)
                                             selected 
