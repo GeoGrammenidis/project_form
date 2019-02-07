@@ -9,8 +9,7 @@ use App\Ansewer;
 class Section extends Model{
 
     protected $guarded = ['id'];
-    //A function that creates a table with tables for validation for
-    //each question we have posted.
+    //creates a table with tables for validation for each question posted.
     public function get_table_to_val(Section $section){
         $section_questions=Question::where('section_id',$section->id)->get();
         $data = [];
@@ -25,11 +24,11 @@ class Section extends Model{
         }
         return $data;
     }
-    //A function that creates the answers in our database
+    //A function that creates the answers for eqch question in our database.
     public function create_answers(Section $section, $data){
         $section_questions=Question::where('section_id',$section->id)->get();
         foreach ($section_questions as $section_question) {
-            //this is to check for a checkbox type question.
+            // checkbox types have an array which we need to convert string.
             if($section_question->input_type!="checkbox")
                 $q_value = request()->all()['question_'.$section_question->id];
             else

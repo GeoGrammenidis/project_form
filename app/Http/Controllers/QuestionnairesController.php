@@ -8,6 +8,7 @@ use App\Question;
 use App\Option;
 
 class QuestionnairesController extends Controller{
+    
     public function index(){
         $sections = Section::all();
         $questions = Question::all();
