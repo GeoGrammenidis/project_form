@@ -1,9 +1,13 @@
+try to pull and check if everything is working on other computer
 cascade on delete/update
 checkbox add javascript to have front-end validation
 check validation for create and edit forms.
 front-end validation needs "min" - "max"
 back-end validation can become better
 add features to the tables on search
+check what happens with empty tables for search
+change to Strict PSR style code
+create factories for the database which is asked
 
 -------------extras to do----------------
 read more about laravel
