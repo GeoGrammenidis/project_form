@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-sm">
             <div class="card">
-                <h1 class="title" style="text-align:center;">Edit/Delete</h1>
+                <h1 class="title" style="text-align:center;">Search</h1>
                                 <div class="accordion" id="accordion">
                     <!-- for each section in database an extra line is added in accordion -->
                     <div class="card">
@@ -39,8 +39,19 @@
                                             <tr>
                                                 <td>{{$section->order}}</td>
                                                 <td>{{$section->name}}</td>
-                                                <td><a href="#"><span style="color:blue;"><i class="fas fa-pencil-alt"></i></span></a></td>
-                                                <td><a href="#"><span style="color:red"><i class="fas fa-trash-alt"></i></span></a></td>
+                                                <td><a href="/questionnaire/section/{{$section->id}}/edit"><span style="color:blue;"><i class="fas fa-pencil-alt"></i></span></a></td>
+                                                <td>
+                                                    <form method="POST" action="/questionnaire/section/{{$section->id}}">
+                                                        @method('DELETE')
+                                                        @csrf
+                                                        <a href="#">
+                                                            
+                                                        </a>
+                                                        <div class="spacer">
+                                                            <a href="javascript:void(0)" class="submit-button"><span style="color:red"><i class="fas fa-trash-alt"></i></span></a>
+                                                        </div>
+                                                    </form>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -115,38 +126,32 @@
                             aria-labelledby="heading3"
                             data-parent="#accordion">
                             <div class="card-body">
-                                <form method="POST"
-                                action="/questionnaire/create_option">
-                                    @csrf
-                                    <div class="form-group">
-                                        <label for="question_id">
-                                            Select Question
-                                        </label>
-                                        <select
-                                            class="form-control"
-                                            name="question_id"
-                                            id="question_id">
-                                            @foreach ($questions as $question)
-                                                @if ($question->input_type=="checkbox"||$question->input_type=="radio")
-                                                    <option value="{{$question->id}}">{{$question->question_text}}</option>
-                                                @endif
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="option_value">
-                                            Option text
-                                        </label>
-                                        <input
-                                            class="form-control"
-                                            type="text"
-                                            name="value"
-                                            id="option_value"
-                                            placeholder="Type a text"
-                                            required>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </form>
+                                <table data-toggle="table">
+                                    <thead>
+                                        <tr>
+                                            <th>question</th>
+                                            <th>value</th>
+                                            <th>edit</th>
+                                            <th>delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($options as $option)
+                                            <tr>
+                                                <td>
+                                                    @foreach ($questions as $question)
+                                                        @if ($question->id == $option->question_id)
+                                                            {{$question->question_text}}
+                                                        @endif
+                                                    @endforeach
+                                                </td>
+                                                <td>{{$option->value}}</td>
+                                                <td><a href="/questionnaire/option/{{$option->id}}/edit"><span style="color:blue;"><i class="fas fa-pencil-alt"></i></span></a></td>
+                                                <td><a href="#"><span style="color:red"><i class="fas fa-trash-alt"></i></span></a></td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div><!--card-body-->
                         </div><!--collapse-->
                     </div><!--card-->

@@ -42,10 +42,18 @@
                             <span class="sr-only">(current)</span>
                         @endif</a>
                 </li>
-                <li class="nav-item @if (Request::is('questionnaire/edit'))
+                <li class="nav-item @if (Request::is('questionnaire/search'))
                     active
                 @endif">
-                    <a class="nav-link" href="/questionnaire/edit">Edit/Delete
+                    <a class="nav-link" href="/questionnaire/search">Search
+                        @if (Request::is('questionnaire/search'))
+                            <span class="sr-only">(current)</span>
+                        @endif</a>
+                </li>
+                <li class="nav-item @if (Request::is('questionnaire/*/edit'))
+                    active
+                @endif">
+                    <a class="nav-link disabled" tabindex="-1" aria-disabled="true" href="#">Edit
                         @if (Request::is('questionnaire/edit'))
                             <span class="sr-only">(current)</span>
                         @endif</a>
@@ -69,5 +77,13 @@
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"></script>
         <script src="https://unpkg.com/bootstrap-table@1.13.4/dist/bootstrap-table.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $(document).on("click",".submit-button",function(){
+                    var form = $(this).closest("form");
+                    form.submit();
+                });
+            });
+        </script>
     </body>
 </html>

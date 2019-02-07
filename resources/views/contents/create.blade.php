@@ -25,8 +25,7 @@
                             aria-labelledby="heading1"
                             data-parent="#accordion">
                             <div class="card-body">
-                                <form method="POST"
-                                action="/questionnaire/create2">
+                                <form method="POST" action="/questionnaire/section/create">
                                     @csrf
                                     <div class="form-group">
                                         <label for="section_name">
@@ -75,8 +74,7 @@
                             aria-labelledby="heading2"
                             data-parent="#accordion">
                             <div class="card-body">
-                                <form method="POST"
-                                action="/questionnaire/create_question">
+                                <form method="POST" action="/questionnaire/question/create">
                                     @csrf
                                     <div class="form-group">
                                         <label for="select_section">
@@ -141,8 +139,7 @@
                             aria-labelledby="heading3"
                             data-parent="#accordion">
                             <div class="card-body">
-                                <form method="POST"
-                                action="/questionnaire/create_option">
+                                <form method="POST" action="/questionnaire/create/option">
                                     @csrf
                                     <div class="form-group">
                                         <label for="question_id">
@@ -153,7 +150,7 @@
                                             name="question_id"
                                             id="question_id">
                                             @foreach ($questions as $question)
-                                                @if ($question->input_type=="checkbox"||$question->input_type=="radio")
+                                                @if ($question->input_type=="checkbox"||$question->input_type=="radio"||$question->input_type=="select")
                                                     <option value="{{$question->id}}">{{$question->question_text}}</option>
                                                 @endif
                                             @endforeach
